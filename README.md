@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Smart Inventory Management System
 
 A comprehensive inventory management, sales, and reporting system built with modern web technologies.
@@ -184,3 +185,6 @@ For issues or questions, check the documentation or review the code structure in
 ---
 
 **Last Updated:** April 2026
+=======
+# Smart-Inventory-Management-System
+>>>>>>> dfb5dff95f2f338bb2b756b7c68386ed68911da4
