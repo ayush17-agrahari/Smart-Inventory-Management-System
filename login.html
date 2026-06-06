@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Inventory – Auth</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-700 via-blue-700 to-cyan-600">
+
+  <div class="bg-white/20 backdrop-blur-xl border border-white/30 p-8 rounded-2xl w-full max-w-md text-white">
+
+    <!-- Title -->
+    <h2 id="formTitle" class="text-3xl font-bold text-center mb-6">
+      Login
+    </h2>
+
+    <!-- Username -->
+    <input id="username" type="text" placeholder="Username"
+      class="w-full mb-4 px-4 py-3 rounded-lg bg-white/10 border border-white/20">
+
+    <!-- Password -->
+    <input id="password" type="password" placeholder="Password"
+      class="w-full mb-4 px-4 py-3 rounded-lg bg-white/10 border border-white/20">
+
+    <!-- Action Button -->
+    <button id="authBtn"
+      class="w-full bg-cyan-400 text-black font-bold py-3 rounded-lg hover:bg-cyan-300">
+      Login
+    </button>
+
+    <!-- Toggle -->
+    <p class="text-center mt-4 text-sm">
+      <span id="toggleText">Don't have an account?</span>
+      <button id="toggleBtn" class="text-cyan-200 underline ml-1">
+        Create Account
+      </button>
+    </p>
+
+  </div>
+
+<script>
+  let isLogin = true;
+
+  const users = JSON.parse(localStorage.getItem("users") || "{}");
+
+  const title = document.getElementById("formTitle");
+  const btn = document.getElementById("authBtn");
+  const toggleText = document.getElementById("toggleText");
+  const toggleBtn = document.getElementById("toggleBtn");
+
+  // Toggle Login/Register
+  toggleBtn.addEventListener("click", () => {
+    isLogin = !isLogin;
+
+    if (isLogin) {
+      title.innerText = "Login";
+      btn.innerText = "Login";
+      toggleText.innerText = "Don't have an account?";
+      toggleBtn.innerText = "Create Account";
+    } else {
+      title.innerText = "Create Account";
+      btn.innerText = "Register";
+      toggleText.innerText = "Already have an account?";
+      toggleBtn.innerText = "Login";
+    }
+  });
+
+  // Main action
+  btn.addEventListener("click", () => {
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (!username || !password) {
+      alert("Fill all fields");
+      return;
+    }
+
+    if (isLogin) {
+      // LOGIN
+      if (users[username] && users[username] === password) {
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("username", username);
+        alert("Login Successful");
+        window.location.href = "index.html";
+      } else {
+        alert("Invalid credentials");
+      }
+    } else {
+      // REGISTER
+      if (users[username]) {
+        alert("User already exists");
+        return;
+      }
+
+      users[username] = password;
+      localStorage.setItem("users", JSON.stringify(users));
+
+      alert("Account created! Now login.");
+      isLogin = true;
+      toggleBtn.click();
+    }
+  });
+</script>
+
+</body>
+</html>
