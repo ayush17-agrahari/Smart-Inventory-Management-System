@@ -1,190 +1,330 @@
-<<<<<<< HEAD
-# Smart Inventory Management System
+# 📦 Smart Inventory Management System
 
-A comprehensive inventory management, sales, and reporting system built with modern web technologies.
-
-## 🎯 Features
-
-- **User Authentication** - Secure login/register with JWT tokens
-- **Product Management** - Add, edit, delete products with inventory tracking
-- **Supplier Management** - Manage supplier information and contacts
-- **Purchase Orders** - Track purchases with automatic inventory updates
-- **Sales/Billing** - Generate invoices with GST calculation
-- **Reports & Analytics** - Dashboard statistics, top-selling products, monthly reports
-- **Real-time Inventory** - Automatic stock updates on purchases and sales
-- **Responsive Design** - Works on desktop, tablet, mobile
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Node.js (v14+)
-- Python 3.6+ (for serving frontend during development)
-- Git
-
-### Installation
-
-1. **Install Backend Dependencies**
-   ```bash
-   npm install
-   ```
-
-2. **Configure Environment**
-   - Edit `.env` file and set your JWT_SECRET
-   ```env
-   PORT=3001
-   JWT_SECRET=your-secret-key
-   NODE_ENV=development
-   ```
-
-3. **Start Backend Server**
-   ```bash
-   npm start
-   ```
-   Backend runs on: `http://localhost:3001`
-
-4. **Start Frontend Server** (in another terminal)
-   ```bash
-   cd "c:\Users\basan\OneDrive\Desktop\project innoventry"
-   python -m http.server 3000
-   ```
-   Frontend runs on: `http://localhost:3000`
-
-5. **Open Application**
-   Navigate to: `http://localhost:3000/login.html`
-
-## 📚 API Documentation
-
-See [API_DOCS.md](API_DOCS.md) for complete API reference.
-
-### Key Endpoints
-
-**Authentication**
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - Login user
-
-**Products**
-- `GET /api/products` - Get all products
-- `POST /api/products` - Add product
-- `PUT /api/products/:id` - Update product
-- `DELETE /api/products/:id` - Delete product
-
-**Sales**
-- `GET /api/sales` - Get all sales
-- `POST /api/sales` - Create invoice
-- `GET /api/sales/:id` - Get sale details
-
-**Reports**
-- `GET /api/reports/stats/dashboard` - Dashboard stats
-- `GET /api/reports/products/top-selling` - Top products
-- `GET /api/reports/sales/monthly` - Monthly report
-
-## 📁 Project Structure
-
-```
-project/
-├── server.js                 # Main Express server
-├── package.json             # Node dependencies
-├── .env                     # Environment variables
-├── database/
-│   └── db.js               # SQLite setup
-├── routes/
-│   ├── auth.js             # Authentication
-│   ├── products.js         # Product management
-│   ├── suppliers.js        # Supplier management
-│   ├── purchases.js        # Purchase orders
-│   ├── sales.js            # Sales/invoices
-│   └── reports.js          # Reports & analytics
-├── utils/
-│   └── api.js              # Frontend API client
-├── .vscode/
-│   ├── launch.json         # VS Code debugger config
-│   └── tasks.json          # Build tasks
-├── login.html              # Login page
-├── index.html              # Dashboard
-├── products.html           # Products page
-├── suppliers.html          # Suppliers page
-├── purchases.html          # Purchases page
-├── sales.html              # Sales/Billing page
-├── reports.html            # Reports page
-├── settings.html           # Settings page
-└── style.css               # Styles
-```
-
-## 🔒 Security Features
-
-- JWT-based authentication
-- Password hashing with bcryptjs
-- Protected routes
-- CORS enabled
-- Input validation
-
-## 💾 Database
-
-SQLite database with tables for:
-- users
-- products
-- suppliers
-- purchases & purchase_items
-- sales & sale_items
-- inventory_log
-
-## 🛠 Development
-
-Start server in watch mode (auto-reload on changes):
-```bash
-npm run dev
-```
-
-## 📦 Dependencies
-
-### Backend
-- express - Web framework
-- sqlite3 - Database
-- cors - Cross-origin requests
-- bcryptjs - Password hashing
-- jsonwebtoken - JWT auth
-- dotenv - Environment variables
-
-### Frontend
-- Tailwind CSS - Styling
-- Charts.js - Data visualization
-- QRCode.js - QR code generation
-
-## ⚠️ Default Credentials
-
-For development:
-- Username: `admin`
-- Password: `admin123`
-
-Register new users via the login page.
-
-## 🐛 Troubleshooting
-
-**Backend won't start**
-- Check if port 3001 is available
-- Verify Node.js is installed: `node --version`
-- Check .env file configuration
-
-**Frontend can't connect to backend**
-- Ensure backend is running on port 3001
-- Check browser console for CORS errors
-- Verify API URLs in utils/api.js
-
-**Database issues**
-- Delete `database/inventory.db` and restart server to reinitialize
-- Check file permissions on database folder
-
-## 📝 License
-
-This project is created for educational purposes.
-
-## 📧 Support
-
-For issues or questions, check the documentation or review the code structure in the routes folder.
+A modern web-based Inventory Management System developed using **Node.js, Express.js, SQLite, HTML, CSS, JavaScript, and Tailwind CSS**. This application helps businesses manage products, suppliers, purchases, sales, inventory tracking, billing, and reporting from a single platform.
 
 ---
 
-**Last Updated:** April 2026
-=======
-# Smart-Inventory-Management-System
->>>>>>> dfb5dff95f2f338bb2b756b7c68386ed68911da4
+# 👨‍💻 Developer
+
+**Ayush Agrahari**
+
+GitHub Repository:
+https://github.com/ayush17-agrahari/Smart-Inventory-Management-System
+
+---
+
+# 📖 Project Overview
+
+The Smart Inventory Management System is designed to simplify inventory operations for small and medium-sized businesses. It provides an easy-to-use interface for managing stock, suppliers, purchases, sales, and reports.
+
+The system automatically updates inventory quantities whenever a purchase or sale is recorded, reducing manual work and improving accuracy.
+
+---
+
+# 🎯 Objectives
+
+* Manage products efficiently
+* Maintain supplier information
+* Record purchases and sales
+* Track inventory automatically
+* Generate invoices and bills
+* Produce useful business reports
+* Reduce manual inventory errors
+* Improve stock visibility
+
+---
+
+# ✨ Features
+
+## 🔐 User Authentication
+
+* Secure login system
+* User registration
+* Session management
+* Protected routes
+
+## 📦 Product Management
+
+* Add new products
+* Update product details
+* Delete products
+* Search products
+* Manage product stock
+* Product price management
+
+## 👥 Supplier Management
+
+* Add suppliers
+* Edit supplier information
+* Delete suppliers
+* Store contact details
+* Track supplier records
+
+## 🛒 Purchase Management
+
+* Create purchase entries
+* Select supplier
+* Add multiple products
+* Automatic inventory increase
+* Purchase history tracking
+
+## 💰 Sales & Billing
+
+* Customer details management
+* Invoice generation
+* GST calculation
+* Discount calculation
+* QR Code generation
+* PDF invoice download
+* Automatic inventory reduction
+
+## 📊 Reports & Analytics
+
+* Sales reports
+* Purchase reports
+* Inventory reports
+* Stock tracking
+* Business insights
+
+## 📱 Responsive Design
+
+* Desktop support
+* Tablet support
+* Mobile support
+* Modern user interface
+
+---
+
+# 🏗️ System Architecture
+
+Frontend:
+
+* HTML5
+* CSS3
+* Tailwind CSS
+* JavaScript
+
+Backend:
+
+* Node.js
+* Express.js
+
+Database:
+
+* SQLite3
+
+Tools:
+
+* Git
+* GitHub
+* VS Code
+* Render
+
+---
+
+# 📁 Project Structure
+
+```text
+Smart-Inventory-Management-System
+│
+├── database
+│   └── inventory.db
+│
+├── routes
+│   ├── auth.js
+│   ├── products.js
+│   ├── suppliers.js
+│   ├── purchases.js
+│   ├── sales.js
+│   ├── reports.js
+│   └── shorten.js
+│
+├── utils
+│   └── api.js
+│
+├── index.html
+├── login.html
+├── register.html
+├── products.html
+├── suppliers.html
+├── purchases.html
+├── sales.html
+├── reports.html
+├── settings.html
+│
+├── server.js
+├── package.json
+├── package-lock.json
+├── README.md
+└── .env
+```
+
+---
+
+# ⚙️ Installation Guide
+
+## Step 1: Clone Repository
+
+```bash
+git clone https://github.com/ayush17-agrahari/Smart-Inventory-Management-System.git
+```
+
+## Step 2: Open Project
+
+```bash
+cd Smart-Inventory-Management-System
+```
+
+## Step 3: Install Dependencies
+
+```bash
+npm install
+```
+
+## Step 4: Start Server
+
+```bash
+npm start
+```
+
+or
+
+```bash
+node server.js
+```
+
+## Step 5: Open Application
+
+```text
+http://localhost:5000
+```
+
+---
+
+# 💾 Database Tables
+
+The system uses SQLite Database.
+
+## Products
+
+Stores:
+
+* Product Name
+* Price
+* Quantity
+* Category
+* Description
+
+## Suppliers
+
+Stores:
+
+* Supplier Name
+* Contact Person
+* Phone Number
+* Email
+* Address
+
+## Purchases
+
+Stores:
+
+* Supplier Details
+* Purchase Date
+* Purchase Amount
+* Purchase Items
+
+## Sales
+
+Stores:
+
+* Invoice Number
+* Customer Information
+* Products Sold
+* GST
+* Grand Total
+
+---
+
+# 🔄 Inventory Workflow
+
+### Purchase Process
+
+Supplier → Purchase Entry → Database Update → Stock Increase
+
+### Sales Process
+
+Customer Purchase → Invoice Generation → Database Update → Stock Decrease
+
+---
+
+# 📊 Future Enhancements
+
+* Barcode Scanner
+* Email Invoices
+* SMS Notifications
+* Cloud Database
+* Multi-user Access
+* Role-Based Authentication
+* AI-Based Stock Prediction
+* Advanced Dashboard Analytics
+
+---
+
+# 🚀 Deployment
+
+The project can be deployed on:
+
+* Render
+* Railway
+* Vercel
+* AWS
+* Azure
+
+---
+
+# 🛠 Technologies Used
+
+| Technology   | Purpose            |
+| ------------ | ------------------ |
+| Node.js      | Backend Runtime    |
+| Express.js   | Web Framework      |
+| SQLite       | Database           |
+| HTML5        | Frontend Structure |
+| CSS3         | Styling            |
+| Tailwind CSS | Responsive UI      |
+| JavaScript   | Client-side Logic  |
+| Git          | Version Control    |
+| GitHub       | Repository Hosting |
+
+---
+
+# 🎓 Academic Relevance
+
+This project is suitable for:
+
+* B.Tech Final Year Projects
+* MCA Projects
+* BCA Projects
+* Inventory Management Research
+* Full Stack Development Learning
+
+---
+
+# 📄 License
+
+This project is developed for educational and learning purposes.
+
+---
+
+# ⭐ Author
+
+### Ayush Agrahari
+
+GitHub:
+https://github.com/ayush17-agrahari
+
+Project:
+https://github.com/ayush17-agrahari/Smart-Inventory-Management-System
+
+If you find this project useful, consider giving it a ⭐ on GitHub.
